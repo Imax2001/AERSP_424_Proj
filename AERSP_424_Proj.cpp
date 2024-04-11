@@ -6,8 +6,7 @@ using namespace std;
 
 int main()
 {
-	Strike strike(1);
-	cout << strike.get_id() << endl;
+	
 
 	return 0;
 }
