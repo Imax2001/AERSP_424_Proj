@@ -1,12 +1,10 @@
-﻿// AERSP_424_Proj.cpp : Defines the entry point for the application.
-//
-
-#include "AERSP_424_Proj.h"
-
+﻿#include "AERSP_424_Proj.h"
+#include "Deck.h"
 using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
+	Deck deck;
+	deck.shuffle();
 	return 0;
 }
