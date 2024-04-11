@@ -11,5 +11,6 @@ private:
 public:
 	void shuffle();
 	void draw_card();
+	queue<int> get_deck_order();
 
 };
