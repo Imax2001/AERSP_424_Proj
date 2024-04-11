@@ -9,13 +9,12 @@ private:
 	int energy;
 	int block;
 	int draw;
-	int block;
 	map <char, bool> status;
 	vector <int> hand;
-	Deck deck;
 
 public:
 	Player();
+	Deck deck;
 	void draw_hand();
 	vector<int> get_hand();
 };

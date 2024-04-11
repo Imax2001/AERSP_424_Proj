@@ -4,9 +4,18 @@
 #include <time.h>
 #include <iostream>
 #include <queue>
+#include "Cards.h"
+#include "Enemy.h"
 using namespace std;
+template<typename T>
+Deck<T>::Deck() { 
+	size = 12; 
+	cards.emplace("strike", strike);
+	cards.emplace("defend", defend);
+}
 
-void Deck::shuffle() {
+template<typename T>
+void Deck<T>::shuffle() {
 	vector<int> card_is = { 1 };
 
 	srand(time(NULL));
@@ -19,12 +28,15 @@ void Deck::shuffle() {
 		this->deck_order.push(*i);
 }
 
-int Deck::draw_card() {
+template<typename T>
+int Deck<T>::draw_card() {
 	int card_id = this->deck_order.front();
 	this->deck_order.pop();
 	return card_id;
 }
 
-queue<int> Deck :: get_deck_order() {
+template<typename T>
+queue<int> Deck<T> :: get_deck_order() {
 	return this->deck_order;
 }
+

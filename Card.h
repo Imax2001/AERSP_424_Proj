@@ -11,7 +11,7 @@ protected:
 	int cost;
 	string name;
 public:
-	Card(int);
+	Card(int, int);
 	void set_id(int);
 	int get_id();
 	int get_cost();

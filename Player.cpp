@@ -3,6 +3,9 @@
 Player::Player() {
 	status['f'] = 0;
 	status['w'] = 0;
+	hp = 100;
+	draw = 5;
+
 }
 
 void Player::draw_hand() {

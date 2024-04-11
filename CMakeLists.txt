@@ -12,7 +12,7 @@ endif()
 project ("AERSP_424_Proj")
 
 # Add source to this project's executable.
-add_executable (AERSP_424_Proj "AERSP_424_Proj.cpp" "AERSP_424_Proj.h" "Player.cpp" "Player.h" "Card.h" "Card.cpp" "Deck.h" "Deck.cpp" "Strike.h" "Strike.cpp" "Enemy.h" "Enemy.cpp")
+add_executable (AERSP_424_Proj "AERSP_424_Proj.cpp" "AERSP_424_Proj.h" "Player.cpp" "Player.h" "Card.h" "Card.cpp" "Deck.h" "Deck.cpp" "Strike.h" "Strike.cpp" "Enemy.h" "Enemy.cpp" "Cards.h" "Cards.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AERSP_424_Proj PROPERTY CXX_STANDARD 20)
