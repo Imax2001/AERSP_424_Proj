@@ -1,4 +1,5 @@
 #include "Cards.h"
+#include "Character.h"
 
 void strike(Enemy* target) {
 	target->take_damage(6);

@@ -1,12 +1,10 @@
 #include "Enemy.h"
 #include "Player.h"
+#include "Character.h"
 #include <time.h>
 
-Enemy::Enemy(int hp) : Player(hp){
+Enemy::Enemy(int hp) : Character(hp, 2){
 	intent = 1;
-	this->hp = 32;
-	draw = 0;
-	energy = 0;
 	deck_size = 2;
 	block = 0;
 	card_list[1] = "Attack";

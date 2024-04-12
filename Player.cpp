@@ -3,12 +3,12 @@
 #include <iostream>
 #include <string>
 #include "Cards.h"
+#include "Character.h"
 using namespace std;
 
 
-Player::Player(int hp) {
+Player::Player(int hp) : Character(hp, 10){
 	weakened = 0;
-	this->hp = hp;
 	draw = 5;
 	energy = 3;
 	deck_size = 10;
@@ -22,54 +22,23 @@ Player::Player(int hp) {
 
 }
 
-int Player::get_hp() { return this->hp; }
 
-int Player::get_block() { return this->block; }
-
-void Player::shuffle() {
-	vector<int> card_is = { 1 };
-
-	srand(time(NULL));
-	for (int i = 2; i <= this->deck_size; i++) {
-		int rand_i = rand() % i;
-		card_is.emplace(card_is.begin() + rand_i, i);
-	}
-
-	for (auto i = card_is.begin(); i != card_is.end(); ++i)
-		this->deck_order.push(*i);
+void Player::shuffle_deck() {
+	this->deck.shuffle();
 }
 
-int Player::draw_card() {
-	int card_id = this->deck_order.front();
-	this->deck_order.pop();
-	return card_id;
-}
 
 void Player::draw_hand() {
 	for (int i = 1; i <= this->draw; i++) {
-		if (deck_order.empty()) {
-			this->shuffle();
+		if (this->deck.deck_order.empty()) {
+			this->deck.shuffle();
 		}
-		this->hand.push_back(this->draw_card());
+		this->hand.push_back(this->deck.draw_card());
 	}
 }
 
 
-void Player::take_damage(int damage) {
-	if (this->weakened) {
-		if (damage >> 1 << 1 == damage)
-			damage = damage / 2;
-		else {
-			damage = (damage + 1) / 2;
-		}
-	}
-	this->hp -= damage;
-}
 
-
-void Player::increase_block(int block) {
-	this->block += block;
-}
 
 vector<int> Player::get_hand() { return this->hand; }
 
@@ -83,6 +52,10 @@ void Player::print_hand() {
 
 void Player::discard_hand() {
 	hand.clear();
+}
+
+void Player::discard_card(int hand_i) {
+	hand.erase(hand.begin()+hand_i-1);
 }
 
 string Player::get_card(int card_num) {
