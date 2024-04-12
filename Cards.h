@@ -2,10 +2,10 @@
 #include "Enemy.h"
 #include "Player.h"
 
+void strike(Enemy*);
 
-template<typename T>
-void strike(T);
+void defend(Player*);
 
-template<typename T>
-void defend(T);
+void attack(Player*);
 
+void weaken(Player*);

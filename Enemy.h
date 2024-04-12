@@ -1,9 +1,15 @@
 #pragma once
+#include "Player.h"
+#include <map>
+#include <string>
+using namespace std;
 
-class Enemy {
-protected:
-	int hp;
-
+class Enemy : public Player{
+private:
+	int intent;
 public:
-	void take_damage(int);
+	Enemy(int);
+	void calc_intent();
+	string get_intent();
+
 };
