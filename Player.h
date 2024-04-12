@@ -19,7 +19,7 @@ public:
 	void shuffle_deck();
 	void draw_hand();
 	int get_energy();
-	vector<int> get_hand();
+	int get_hand_size();
 	void print_hand();
 	void discard_hand();
 	void discard_card(int);

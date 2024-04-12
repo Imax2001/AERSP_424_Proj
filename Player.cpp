@@ -40,7 +40,9 @@ void Player::draw_hand() {
 
 
 
-vector<int> Player::get_hand() { return this->hand; }
+int Player::get_hand_size() {
+	return hand.size();
+}
 
 void Player::print_hand() {
 	int n = 1;

@@ -26,13 +26,18 @@ int main()
 			cout << "Cards in Hand:  " << endl;
 			player.print_hand();
 			cout << "Which card would you like to play? ";
-			while (card < 1 || card > 5) {
-				cin >> card;
-				if (card < 1 || card > 5) {
-					cout << "Invalid input, try again." << endl;
+			cin >> card;
+			while (1)
+			{
+				if (cin.fail() || card <1 || card > player.get_hand_size())
+				{
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "Please enter a valid integer." << endl;
+					cin >> card;
 				}
+				else
+					break;
 			}
 			if (player.get_card(card) == "Strike") {
 				strike(ep);
