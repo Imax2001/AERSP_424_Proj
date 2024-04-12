@@ -13,8 +13,8 @@ Player::Player(int hp) : Character(hp, 10){
 	energy = 3;
 	deck_size = 10;
 	block = 0; 
-	for (int i = 1; i <= 4; i++) {
-		card_list[i] = "Strike";
+	for (int i = 1; i <= 4; i++) { //card list maps card id number to card name
+		card_list[i] = "Strike";   //here, we initialize this map for a player character
 	}
 	for (int i = 5; i <= 10; i++) {
 		card_list[i] = "Defend";
@@ -28,7 +28,7 @@ void Player::shuffle_deck() {
 }
 
 
-void Player::draw_hand() {
+void Player::draw_hand() { //draw 5 cards, shuffling discarded cards if deck runs out
 	for (int i = 1; i <= this->draw; i++) {
 		if (this->deck.deck_order.empty()) {
 			this->deck.shuffle();

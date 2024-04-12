@@ -8,26 +8,27 @@ using namespace std;
 
 int main()
 {
-	Enemy enemy(32);
+	// Here is where we will impliment a simple battle between the player and one enemy
+	Enemy enemy(32); //enemy is given 32 hp
 	Enemy* ep = &enemy;
-	Player player(100);
+	Player player(100); //player is given 100 hp
 	Player* pp = &player;
-	int signed card = -1;
+	int signed card = -1; //card is initialized as negative for future logic
 	while (enemy.get_hp() > 0) {
-		player.refill_energy();
+		player.refill_energy(); //at the beginning of each turn, the player loses their block, refills energy, and draws a new hand
 		player.clear_block();
 		enemy.clear_block();
 		player.discard_hand();
 		enemy.calc_intent();
 		cout << "The enemy intends to " << enemy.get_intent() << endl;
 		player.draw_hand();
-		while (player.get_energy() > 0) {
+		while (player.get_energy() > 0) { //player can play cards until they are out of energy
 			cout << "Enemy hp: " << enemy.get_hp() << "\t Player hp: " << player.get_hp() << "\t Player block: " << player.get_block() << "\t Player energy: " << player.get_energy() << endl;
 			cout << "Cards in Hand:  " << endl;
 			player.print_hand();
 			cout << "Which card would you like to play? ";
 			cin >> card;
-			while (1)
+			while (1) //input validation
 			{
 				if (cin.fail() || card <1 || card > player.get_hand_size())
 				{
