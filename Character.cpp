@@ -19,7 +19,18 @@ void Character::take_damage(int damage) {
 			damage = (damage + 1) / 2; // if damage is odd, it is rounded up
 		}
 	}
-	this->hp -= damage;
+	if (this->block > 0) {
+		if (damage > this->block) {
+			this->block =0;
+			this->hp -= damage - this->block;
+		}
+		else {
+			this->block -= damage;
+		}
+	}
+	else {
+		this->hp -= damage;
+	}
 }
 
 
